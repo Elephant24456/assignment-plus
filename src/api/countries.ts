@@ -1,8 +1,9 @@
 import axios from "axios";
+import { Countrytype } from "../types/countrytype";
 
-export const getData = async() => {
-      const response = await axios.get('https://restcountries.com/v3.1/all');
-      console.log(response);
-  }
+export const getData = async (): Promise<Countrytype[]> => {
+    const response = await axios.get('https://restcountries.com/v3.1/all');
+    console.log(response.data);
 
-// 2024/06/26
+    return response.data;
+}
